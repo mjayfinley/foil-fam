@@ -36,7 +36,9 @@
   .intro p { color: var(--taupe); }
   .cross { display: block; width: 14px; height: 20px; margin: 24px auto 0; color: var(--gold); }
 
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px; }
+  .grid .concept { grid-column: span 2; }
+  .grid .concept:nth-child(4) { grid-column: 2 / span 2; }
   .concept { background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
   .swatch { height: 140px; display: grid; grid-template-columns: repeat(5, 1fr); }
   .swatch span { display: block; }
@@ -51,7 +53,7 @@
   .btn.line:hover { background: var(--espresso); color: var(--cream); }
   .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .foot { text-align: center; margin-top: 56px; font-size: 14px; color: var(--taupe); }
-  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } .swatch { height: 96px; } }
+  @media (max-width: 860px) { .grid .concept, .grid .concept:nth-child(4) { grid-column: auto; } .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } .swatch { height: 96px; } }
 </style>
 </head>
 <body>
@@ -61,38 +63,56 @@
     <span class="logo" role="img" aria-label="Foil Fam"><svg viewBox="0 0 3515 821" aria-hidden="true"><use href="#ff-logo"/></svg></span>
 
     <div class="intro">
-      <p class="eyebrow">Website concepts · Round 2</p>
-      <h1>Three new homepage directions</h1>
-      <p>Tap a concept to view its homepage, or go straight to its About page. Each one works on your phone, so it's worth checking both.</p>
+      <p class="eyebrow">Blush Shimmer · Color schemes</p>
+      <h1>One layout, five color stories</h1>
+      <p>Every version uses the Blush Shimmer layout you picked. Only the colors change. Tap a scheme to view its homepage, or go straight to its About page.</p>
       <svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross"/></svg>
     </div>
 
     <div class="grid">
       <article class="concept">
-        <div class="swatch" aria-hidden="true"><span style="background:#FBF7F0"></span><span style="background:#E9DCC6"></span><span style="background:#B8975A"></span><span style="background:#75665A"></span><span style="background:#3E342C"></span></div>
-        <div class="body">
-          <span class="num">Concept 1</span>
-          <h2>Soft Luxe</h2>
-          <p>Minimal and editorial. Champagne and cream with gold-foil accents and soft serif headings.</p>
-          <div class="links"><a class="btn" href="1-new-soft-luxe.html">Homepage</a><a class="btn line" href="1-new-soft-luxe-about.html">About page</a></div>
-        </div>
-      </article>
-      <article class="concept">
         <div class="swatch" aria-hidden="true"><span style="background:#FDF6F4"></span><span style="background:#EFD0CD"></span><span style="background:#EDE3F0"></span><span style="background:#B88A93"></span><span style="background:#7A4F5A"></span></div>
         <div class="body">
-          <span class="num">Concept 2</span>
+          <span class="num">Scheme 1 · Current colors</span>
           <h2>Blush Shimmer</h2>
-          <p>Romantic and feminine. Blush and mauve with pearly gradients and chubby retro headings.</p>
-          <div class="links"><a class="btn" href="2-new-blush-shimmer.html">Homepage</a><a class="btn line" href="2-new-blush-shimmer-about.html">About page</a></div>
+          <p>The original. Blush and mauve with pearly pink-lilac gradients.</p>
+          <div class="links"><a class="btn" href="blush-1-blush-shimmer.html">Homepage</a><a class="btn line" href="blush-1-blush-shimmer-about.html">About page</a></div>
         </div>
       </article>
       <article class="concept">
-        <div class="swatch" aria-hidden="true"><span style="background:#F7F1EA"></span><span style="background:#EADCCF"></span><span style="background:#B39282"></span><span style="background:#CEC4DE"></span><span style="background:#2F2420"></span></div>
+        <div class="swatch" aria-hidden="true"><span style="background:#FBF7F0"></span><span style="background:#E9DCC6"></span><span style="background:#F3E6C4"></span><span style="background:#B8975A"></span><span style="background:#785A28"></span></div>
         <div class="body">
-          <span class="num">Concept 3</span>
-          <h2>Salon Modern</h2>
-          <p>Bold and professional. Kraft and nude tones from your box with a soft lilac accent.</p>
-          <div class="links"><a class="btn" href="3-new-salon-modern.html">Homepage</a><a class="btn line" href="3-new-salon-modern-about.html">About page</a></div>
+          <span class="num">Scheme 2 · From Soft Luxe</span>
+          <h2>Champagne Gold</h2>
+          <p>Cream and champagne with warm gold-foil accents.</p>
+          <div class="links"><a class="btn" href="blush-2-champagne-gold.html">Homepage</a><a class="btn line" href="blush-2-champagne-gold-about.html">About page</a></div>
+        </div>
+      </article>
+      <article class="concept">
+        <div class="swatch" aria-hidden="true"><span style="background:#F7F1EA"></span><span style="background:#D9C6B6"></span><span style="background:#CEC4DE"></span><span style="background:#B39282"></span><span style="background:#6F5649"></span></div>
+        <div class="body">
+          <span class="num">Scheme 3 · From Salon Modern</span>
+          <h2>Kraft &amp; Lilac</h2>
+          <p>Kraft-box nudes and cocoa with a soft lilac shimmer.</p>
+          <div class="links"><a class="btn" href="blush-3-kraft-lilac.html">Homepage</a><a class="btn line" href="blush-3-kraft-lilac-about.html">About page</a></div>
+        </div>
+      </article>
+      <article class="concept">
+        <div class="swatch" aria-hidden="true"><span style="background:#FAF7FC"></span><span style="background:#E2D6EE"></span><span style="background:#E3ECF7"></span><span style="background:#9F8BC2"></span><span style="background:#5E4A86"></span></div>
+        <div class="body">
+          <span class="num">Scheme 4 · New · Pastel</span>
+          <h2>Lavender Haze</h2>
+          <p>Dreamy lavender with powder-blue and peach pearl tints.</p>
+          <div class="links"><a class="btn" href="blush-4-lavender-haze.html">Homepage</a><a class="btn line" href="blush-4-lavender-haze-about.html">About page</a></div>
+        </div>
+      </article>
+      <article class="concept">
+        <div class="swatch" aria-hidden="true"><span style="background:#FBF6F2"></span><span style="background:#E6D3C5"></span><span style="background:#F4E6DD"></span><span style="background:#B08E78"></span><span style="background:#7C5A47"></span></div>
+        <div class="body">
+          <span class="num">Scheme 5 · New · Nude</span>
+          <h2>Nude Latte</h2>
+          <p>Creamy latte and soft clay tones with a warm pearly glow.</p>
+          <div class="links"><a class="btn" href="blush-5-nude-latte.html">Homepage</a><a class="btn line" href="blush-5-nude-latte-about.html">About page</a></div>
         </div>
       </article>
     </div>
