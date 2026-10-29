@@ -1,1 +1,5 @@
 .vercel
+
+# Font download archives (keep purchased fonts out of the public repo)
+monley-*.zip
+*:Zone.Identifier
