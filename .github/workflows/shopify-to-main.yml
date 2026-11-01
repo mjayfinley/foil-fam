@@ -1,0 +1,24 @@
+# shopify-live -> main: when the Shopify theme editor commits to shopify-live, merge it into main's theme/.
+name: Sync Shopify editor changes to main
+
+on:
+  push:
+    branches: [shopify-live]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: theme-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: .github/scripts/theme-sync.sh
