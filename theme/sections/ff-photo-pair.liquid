@@ -1,0 +1,27 @@
+{%- comment -%} Two marketing photos side by side (stacked on phones). {%- endcomment -%}
+<section class="ff">
+  <div class="wrap photo-pair">
+    {%- for i in (1..2) -%}
+      {%- assign key = 'image_' | append: i -%}
+      {%- assign img = section.settings[key] -%}
+      <div class="photo">
+        {%- if img != blank -%}
+          {{ img | image_url: width: 1200 | image_tag: widths: '400, 800, 1200', sizes: '(max-width: 560px) 100vw, 50vw', loading: 'lazy' }}
+        {%- else -%}
+          <span>Marketing photo</span>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam photo pair",
+  "settings": [
+    { "type": "image_picker", "id": "image_1", "label": "Photo 1" },
+    { "type": "image_picker", "id": "image_2", "label": "Photo 2" }
+  ],
+  "presets": [{ "name": "Foil Fam photo pair" }]
+}
+{% endschema %}

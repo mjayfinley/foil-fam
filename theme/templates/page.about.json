@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "intro": {
+      "type": "ff-about-intro",
+      "settings": {}
+    },
+    "story": {
+      "type": "ff-about-story",
+      "settings": {}
+    },
+    "photos": {
+      "type": "ff-photo-pair",
+      "settings": {}
+    },
+    "signup": {
+      "type": "ff-signup",
+      "settings": {}
+    }
+  },
+  "order": [
+    "intro",
+    "story",
+    "photos",
+    "signup"
+  ]
+}

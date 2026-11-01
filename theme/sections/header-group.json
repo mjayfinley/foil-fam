@@ -1,0 +1,21 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "ff-announcement",
+      "settings": {}
+    },
+    "header": {
+      "type": "ff-header",
+      "settings": {
+        "menu": "main-menu",
+        "show_cart": true
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

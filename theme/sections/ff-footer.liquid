@@ -1,0 +1,36 @@
+<footer class="ff ff-footer">
+  <div class="wrap footer-inner">
+    <a href="{{ routes.root_url }}" class="logo logo-stacked" aria-label="{{ shop.name | escape }} home"><svg viewBox="0 0 1614 1614" aria-hidden="true"><use href="#ff-logo-stacked"/></svg></a>
+    {%- if section.settings.tagline != blank %}<p class="tag">{{ section.settings.tagline | escape }}</p>{% endif %}
+    <svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross"/></svg>
+    {%- if section.settings.email != blank %}<a class="email" href="mailto:{{ section.settings.email }}">{{ section.settings.email | escape }}</a>{% endif %}
+    {%- if section.settings.address != blank %}<p class="addr">{{ section.settings.address | escape }}</p>{% endif %}
+    <div class="socials">
+      {%- comment -%} Defaults live here: link settings only accept store paths as schema defaults {%- endcomment -%}
+      {%- assign instagram = section.settings.instagram | default: 'https://www.instagram.com/foil.fam/' -%}
+      {%- if instagram != blank -%}
+        <a href="{{ instagram }}" target="_blank" rel="noopener" aria-label="Foil Fam on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+      {%- endif -%}
+      {%- assign tiktok = section.settings.tiktok | default: 'https://www.tiktok.com/@foil.fam' -%}
+      {%- if tiktok != blank -%}
+        <a href="{{ tiktok }}" target="_blank" rel="noopener" aria-label="Foil Fam on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 3c.3 2.1 1.6 3.5 3.6 3.7v3c-1.3.1-2.5-.3-3.6-1v5.8c0 3.2-2.5 5.5-5.6 5.5S5.4 17.7 5.4 14.6c0-3.3 2.9-5.8 6.3-5.3v3.1c-1.6-.4-3.2.6-3.2 2.2 0 1.3 1 2.4 2.4 2.4 1.5 0 2.5-1 2.5-2.7V3h3.2z"/></svg></a>
+      {%- endif -%}
+    </div>
+    <p class="legal">© {{ 'now' | date: '%Y' }} {{ shop.name | escape }} · foil-fam.com · @foil.fam</p>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Foil Fam footer",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Faith based · Family owned · Fun foils" },
+    { "type": "text", "id": "email", "label": "Email", "default": "info@foil-fam.com" },
+    { "type": "text", "id": "address", "label": "Address", "default": "7111 FM 2920, Suite 207 · Spring, TX 77379" },
+    { "type": "url", "id": "instagram", "label": "Instagram link", "info": "Leave empty for instagram.com/foil.fam" },
+    { "type": "url", "id": "tiktok", "label": "TikTok link", "info": "Leave empty for tiktok.com/@foil.fam" }
+  ],
+  "presets": [{ "name": "Foil Fam footer" }],
+  "enabled_on": { "groups": ["footer"] }
+}
+{% endschema %}
