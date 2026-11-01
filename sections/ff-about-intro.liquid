@@ -1,0 +1,19 @@
+{%- comment -%} About banner: one-line Monley headline + wide cross rule. {%- endcomment -%}
+<section class="ff about-intro center">
+  <div class="wrap">
+    {%- comment -%} Typed with lowercase i's on purpose: Monley's lowercase i matches the client's lettering. {%- endcomment -%}
+    <h1 class="page-title" aria-label="{{ section.settings.heading_label | escape }}">{{ section.settings.heading | escape }}</h1>
+    <div class="cross-rule" aria-hidden="true"><svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross-bold"/></svg></div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam about banner",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "TWO SiSTERS WiTH ONE FAiTH FiLLED ViSiON.", "info": "Shown exactly as typed. Lowercase i's match the client's lettering." },
+    { "type": "text", "id": "heading_label", "label": "Heading for screen readers", "default": "Two sisters with one faith filled vision." }
+  ],
+  "presets": [{ "name": "Foil Fam about banner" }]
+}
+{% endschema %}

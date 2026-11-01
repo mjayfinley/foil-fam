@@ -1,0 +1,40 @@
+{%- comment -%}
+  Foil Fam header: traced logo + uppercase nav. Links come from the menu picked in the theme editor
+  (Online Store > Navigation); until one is set up it falls back to Home / Shop / About Us / Contact.
+{%- endcomment -%}
+<header class="ff ff-header">
+  <div class="wrap header-inner">
+    <a href="{{ routes.root_url }}" class="logo" aria-label="{{ shop.name | escape }} home"><svg viewBox="0 0 3515 821" aria-hidden="true"><use href="#ff-logo"/></svg></a>
+    <nav aria-label="Main">
+      <ul>
+        {%- assign menu = section.settings.menu -%}
+        {%- if menu != blank and menu.links.size > 0 -%}
+          {%- for link in menu.links -%}
+            <li><a href="{{ link.url }}"{% if link.current %} class="active" aria-current="page"{% endif %}>{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+        {%- else -%}
+          <li><a href="{{ routes.root_url }}"{% if request.page_type == 'index' %} class="active" aria-current="page"{% endif %}>Home</a></li>
+          <li><a href="{{ routes.root_url }}#shop">Shop</a></li>
+          <li><a href="/pages/about"{% if page.handle == 'about' %} class="active" aria-current="page"{% endif %}>About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        {%- endif -%}
+        {%- if section.settings.show_cart -%}
+          <li><a href="{{ routes.cart_url }}" id="cart-icon-bubble"{% if request.page_type == 'cart' %} class="active" aria-current="page"{% endif %}>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a></li>
+        {%- endif -%}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Foil Fam header",
+  "class": "ff-section-header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Leave the menu empty to show Home, Shop, About Us and Contact." },
+    { "type": "checkbox", "id": "show_cart", "label": "Show cart link", "default": true }
+  ],
+  "presets": [{ "name": "Foil Fam header" }],
+  "enabled_on": { "groups": ["header"] }
+}
+{% endschema %}

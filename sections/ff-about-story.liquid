@@ -1,0 +1,28 @@
+{%- comment -%} Our Story: arched photo + heading + story text. {%- endcomment -%}
+<section class="ff about">
+  <div class="wrap about-grid">
+    {%- if section.settings.image != blank -%}
+      {%- assign alt = section.settings.image.alt | default: section.settings.image_alt -%}
+      {{ section.settings.image | image_url: width: 1200 | image_tag: class: 'photo arch', widths: '400, 800, 1200', sizes: '(max-width: 820px) 340px, 45vw', alt: alt, loading: 'lazy' }}
+    {%- else -%}
+      <img class="photo arch" src="{{ 'about-hali-lauryn.jpg' | asset_url }}" width="1000" height="1500" alt="{{ section.settings.image_alt | escape }}" loading="lazy">
+    {%- endif -%}
+    <div>
+      <h2>{{ section.settings.heading | escape }}</h2>
+      {{ section.settings.text }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam our story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo", "info": "Leave empty to use the Hali & Lauryn photo." },
+    { "type": "text", "id": "image_alt", "label": "Photo description", "default": "Hali and Lauryn, the sisters behind Foil Fam" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Story" },
+    { "type": "richtext", "id": "text", "label": "Story", "default": "<p>After decades behind the chair, trying countless foil brands & bubbling with our own ideas we decided to take this leap of faith! We’re bringing our real world experience & passion for hairstyling into a brand of our own! Pouring our heart, as well as everything we’ve learned along the way to bring you cute, quality foils!</p>" }
+  ],
+  "presets": [{ "name": "Foil Fam our story" }]
+}
+{% endschema %}

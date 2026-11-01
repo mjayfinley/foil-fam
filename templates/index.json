@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ff-hero",
+      "settings": {}
+    },
+    "motto": {
+      "type": "ff-banner",
+      "settings": {
+        "text": "Inspired by experience & guided by faith"
+      }
+    },
+    "coming_soon": {
+      "type": "ff-coming-soon",
+      "settings": {}
+    },
+    "photos": {
+      "type": "ff-photo-pair",
+      "settings": {}
+    },
+    "tagline": {
+      "type": "ff-banner",
+      "settings": {
+        "text": "Fun foils, made by stylists, for stylists"
+      }
+    },
+    "howto": {
+      "type": "ff-howto",
+      "blocks": {
+        "way-shipping": {
+          "type": "way",
+          "settings": {
+            "icon": "box",
+            "title": "Shipping",
+            "text": "Wrapped with love & shipped right to your door."
+          }
+        },
+        "way-pickup": {
+          "type": "way",
+          "settings": {
+            "icon": "store",
+            "title": "Local Salon Pickup",
+            "text": "Contact us first!",
+            "address": "7111 FM 2920, Suite 207\nSpring, TX 77379",
+            "phones": "Hali • (832) 296-3751\nLauryn • (832) 585-6652"
+          }
+        },
+        "way-delivery": {
+          "type": "way",
+          "settings": {
+            "icon": "truck",
+            "title": "Weekly Local Delivery",
+            "text": "Tuesdays to Spring, Tomball & The Woodlands.",
+            "note": "$5 delivery fee on orders under $50"
+          }
+        }
+      },
+      "block_order": [
+        "way-shipping",
+        "way-pickup",
+        "way-delivery"
+      ],
+      "settings": {}
+    },
+    "signup": {
+      "type": "ff-signup",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "motto",
+    "coming_soon",
+    "photos",
+    "tagline",
+    "howto",
+    "signup"
+  ]
+}

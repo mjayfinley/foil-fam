@@ -1,0 +1,27 @@
+{%- comment -%}
+  Foil Fam head: fonts + stylesheet. Rendered in layout/theme.liquid after Dawn's base.css.
+    Monley (Flawless and Co., licensed): the logo's lettering, used for the bubbly headings
+    Playpen Sans (OFL): handwritten accents; size-adjust scales it down to the footprint the
+      sizes were tuned for (at the same font-size it runs ~20% taller and ~36% wider than Patrick Hand)
+    Google Fonts: Fraunces, Nunito Sans (body), Nunito (Our Story), Poiret One (shop sub line)
+{%- endcomment -%}
+<meta name="color-scheme" content="light only">
+<meta name="darkreader-lock">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..600,0..100,0..1;1,9..144,400..600,0..100,0..1&family=Nunito+Sans:wght@300;400;600&family=Nunito:wght@400&family=Poiret+One&display=swap" rel="stylesheet">
+{{ 'monley-webfont.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+<style>
+  @font-face {
+    font-family: "Monley";
+    src: url("{{ 'monley-webfont.woff2' | asset_url }}") format("woff2"), url("{{ 'monley-webfont.woff' | asset_url }}") format("woff");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "Playpen Sans";
+    src: url("{{ 'playpen-sans-latin.woff2' | asset_url }}") format("woff2");
+    font-weight: 400; font-style: normal; font-display: swap;
+    size-adjust: 84%;
+  }
+</style>
+{{ 'foil-fam.css' | asset_url | stylesheet_tag }}
