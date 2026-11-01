@@ -1,0 +1,23 @@
+{%- comment -%} Shop "coming soon" box. Swap for a featured collection section once the drop is live. {%- endcomment -%}
+<section id="shop" class="ff shop-soon">
+  <div class="wrap">
+    <div class="coming-soon center">
+      <h2>{{ section.settings.heading_line_1 | escape }}{% if section.settings.heading_line_2 != blank %}<br> {{ section.settings.heading_line_2 | escape }}{% endif %}</h2>
+      {%- if section.settings.text != blank -%}
+        <p><svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><use href="#ff-sparkle"/></svg> {{ section.settings.text | escape }} <svg class="sparkle flip" viewBox="0 0 24 24" aria-hidden="true"><use href="#ff-sparkle"/></svg></p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam coming soon",
+  "settings": [
+    { "type": "text", "id": "heading_line_1", "label": "Heading, line 1", "default": "Our first prints are" },
+    { "type": "text", "id": "heading_line_2", "label": "Heading, line 2", "default": "almost here!" },
+    { "type": "text", "id": "text", "label": "Sub line", "default": "Shop the drop New Year’s Day!" }
+  ],
+  "presets": [{ "name": "Foil Fam coming soon" }]
+}
+{% endschema %}

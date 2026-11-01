@@ -1,0 +1,36 @@
+{%- comment -%} Welcome hero: lettered "Welcome to the Fam" wordmark, motto, arched photo. {%- endcomment -%}
+<section class="ff hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="welcome">{% render 'ff-welcome-wordmark' %}<span class="sr-only">Welcome to the Fam</span></h1>
+      {%- if section.settings.motto != blank -%}
+        {%- assign parts = section.settings.motto | split: '•' -%}
+        <p class="hero-sub">
+          {%- for part in parts -%}
+            <span>{{ part | strip | escape }}{% unless forloop.last %} &bull;{% endunless %}</span>{% unless forloop.last %} {% endunless %}
+          {%- endfor -%}
+        </p>
+      {%- endif -%}
+    </div>
+    <div class="hero-figure">
+      {%- if section.settings.image != blank -%}
+        {%- assign alt = section.settings.image.alt | default: section.settings.image_alt -%}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: class: 'photo arch', widths: '400, 700, 1000, 1400', sizes: '(max-width: 820px) 340px, 45vw', alt: alt }}
+      {%- else -%}
+        <img class="photo arch" src="{{ 'hero-hali-lauryn.jpg' | asset_url }}" width="1334" height="2000" alt="{{ section.settings.image_alt | escape }}">
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam welcome",
+  "settings": [
+    { "type": "text", "id": "motto", "label": "Motto", "default": "Faith based • Family owned • Fun foils", "info": "Separate phrases with •. Each phrase stays together on phones." },
+    { "type": "image_picker", "id": "image", "label": "Photo", "info": "Tall photo (2:3). Leave empty to use the Hali & Lauryn photo." },
+    { "type": "text", "id": "image_alt", "label": "Photo description", "default": "Hali and Lauryn seated together, holding a box of Foil Fam foils" }
+  ],
+  "presets": [{ "name": "Foil Fam welcome" }]
+}
+{% endschema %}

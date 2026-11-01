@@ -1,0 +1,18 @@
+{%- comment -%} Dark banner with wide-spaced caps between two thin crosses (motto / tagline). {%- endcomment -%}
+<div class="ff motto">
+  <div class="wrap">
+    <svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross"/></svg>
+    <p>{{ section.settings.text | escape }}</p>
+    <svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross"/></svg>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Foil Fam banner",
+  "settings": [
+    { "type": "text", "id": "text", "label": "Text", "default": "Inspired by experience & guided by faith", "info": "Stays on one line on phones, so keep it short." }
+  ],
+  "presets": [{ "name": "Foil Fam banner" }]
+}
+{% endschema %}
