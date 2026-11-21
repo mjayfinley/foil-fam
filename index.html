@@ -194,6 +194,14 @@
   }
   .coming-soon .sparkle { width: 1em; height: 1em; vertical-align: -0.1em; }
 
+/* ---------- Feature photo: Foil Fam cards on foil (between the motto banner and the shop) ---------- */
+  section.feature-photo { padding-bottom: 0; }  /* the shop section's top padding spaces it from the card below */
+  .feature-photo img {
+    display: block; width: 100%; height: auto; max-width: 900px; margin: 0 auto;  /* same width as the coming-soon card */
+    aspect-ratio: 16 / 9; object-fit: cover; object-position: center 52%;  /* frames the two center cards */
+    border: 1px solid var(--petal); border-radius: var(--radius); background: var(--petal);
+  }
+
   /* ---------- Marketing photos ---------- */
   .photo {
     display: flex; align-items: center; justify-content: center; text-align: center;
@@ -343,6 +351,7 @@
     nav ul { gap: 4px 20px; justify-content: center; }
     nav a { font-size: 12px; }
     .photo-pair { grid-template-columns: 1fr; }
+    .feature-photo img { aspect-ratio: 4 / 5; }
     .motto .wrap { gap: 8px; }
     .motto p { font-size: min(11px, 2.7vw); letter-spacing: 0.1em; white-space: nowrap; }  /* keep each banner on one line */
     .motto .cross { width: 11px; height: 22px; }
@@ -396,6 +405,13 @@
       <svg class="cross" viewBox="0 0 20 28" aria-hidden="true"><use href="#ff-cross"/></svg>
     </div>
   </div>
+
+  <!-- FEATURE PHOTO -->
+  <section class="feature-photo">
+    <div class="wrap">
+      <img src="images/foil-fam-cards.jpg" width="1000" height="1500" loading="lazy" alt="Foil Fam cards scattered across sheets of silver foil">
+    </div>
+  </section>
 
   <!-- PRODUCTS: coming soon -->
   <section id="shop" class="shop-soon">

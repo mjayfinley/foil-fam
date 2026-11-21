@@ -154,6 +154,14 @@ h2 em { font-style: normal; }
 }
 .coming-soon .sparkle { width: 1em; height: 1em; vertical-align: -0.1em; }
 
+/* ---------- Feature photo: Foil Fam cards on foil (between the motto banner and the shop) ---------- */
+section.feature-photo { padding-bottom: 0; }  /* the shop section's top padding spaces it from the card below */
+.feature-photo img {
+  display: block; width: 100%; height: auto; max-width: 900px; margin: 0 auto;  /* same width as the coming-soon card */
+  aspect-ratio: 16 / 9; object-fit: cover; object-position: center 52%;  /* frames the two center cards */
+  border: 1px solid var(--petal); border-radius: var(--radius); background: var(--petal);
+}
+
 /* ---------- Marketing photos ---------- */
 .photo {
   display: flex; align-items: center; justify-content: center; text-align: center;
@@ -167,6 +175,7 @@ h2 em { font-style: normal; }
 img.photo { display: block; width: 100%; height: auto; object-fit: cover; object-position: center 35%; background: var(--petal); }
 .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .photo-pair .photo { aspect-ratio: 4 / 3; }
+.photo-pair.portrait .photo { aspect-ratio: 4 / 5; }  /* tall photos (About page) keep the people in frame */
 
 /* ---------- About ---------- */
 .about { background: var(--pearl-grad); overflow: hidden; }
@@ -316,6 +325,7 @@ img.photo { display: block; width: 100%; height: auto; object-fit: cover; object
   .ff-header nav ul { gap: 4px 20px; justify-content: center; }
   .ff-header nav a { font-size: 12px; }
   .photo-pair { grid-template-columns: 1fr; }
+  .feature-photo img { aspect-ratio: 4 / 5; }
   .motto .wrap { gap: 8px; }
   .motto p { font-size: min(11px, 2.7vw); letter-spacing: 0.1em; white-space: nowrap; }  /* keep each banner on one line */
   .motto .cross { width: 11px; height: 22px; }
