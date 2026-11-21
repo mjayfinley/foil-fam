@@ -1,0 +1,22 @@
+{%- comment -%} Wide feature photo (Foil Fam cards on foil), framed like the coming-soon card. {%- endcomment -%}
+<section class="ff feature-photo">
+  <div class="wrap">
+    {%- if section.settings.image != blank -%}
+      {%- assign alt = section.settings.image.alt | default: section.settings.image_alt -%}
+      {{ section.settings.image | image_url: width: 1800 | image_tag: widths: '600, 900, 1200, 1800', sizes: '(max-width: 960px) 100vw, 900px', loading: 'lazy', alt: alt }}
+    {%- else -%}
+      <img src="{{ 'foil-fam-cards.jpg' | asset_url }}" width="1000" height="1500" loading="lazy" alt="{{ section.settings.image_alt | escape }}">
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Foil Fam feature photo",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Photo", "info": "Shown wide on desktop, taller on phones; the center of the photo stays in frame. Leave empty to use the cards-on-foil photo." },
+    { "type": "text", "id": "image_alt", "label": "Photo description", "default": "Foil Fam cards scattered across sheets of silver foil" }
+  ],
+  "presets": [{ "name": "Foil Fam feature photo" }]
+}
+{% endschema %}

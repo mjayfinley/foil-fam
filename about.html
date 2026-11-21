@@ -180,6 +180,7 @@
   img.photo { display: block; width: 100%; height: auto; object-fit: cover; object-position: center 35%; background: var(--petal); }
   .photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .photo-pair .photo { aspect-ratio: 4 / 3; }
+  .photo-pair.portrait .photo { aspect-ratio: 4 / 5; }  /* tall photos (About page) keep the people in frame */
 
   /* ---------- About ---------- */
   .about { background: var(--pearl-grad); overflow: hidden; }
@@ -370,9 +371,9 @@
 
   <!-- MARKETING PHOTOS -->
   <section>
-    <div class="wrap photo-pair">
-      <div class="photo"><span>Marketing photo</span></div>
-      <div class="photo"><span>Marketing photo</span></div>
+    <div class="wrap photo-pair portrait">
+      <img class="photo" src="images/about-studio-block.jpg" width="1333" height="2000" loading="lazy" style="object-position: center 85%" alt="Hali and Lauryn in the studio, one seated on a white block and one on the floor beside hand-lettered Foil Fam signs">
+      <img class="photo" src="images/about-sunglasses.jpg" width="1333" height="2000" loading="lazy" style="object-position: center 50%" alt="Hali and Lauryn lying head to head in sunglasses, surrounded by Foil Fam cards">
     </div>
   </section>
 
