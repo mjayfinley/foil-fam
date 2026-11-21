@@ -10,7 +10,15 @@
     },
     "photos": {
       "type": "ff-photo-pair",
-      "settings": {}
+      "settings": {
+        "shape": "portrait",
+        "asset_1": "about-studio-block.jpg",
+        "position_1": "center 85%",
+        "alt_1": "Hali and Lauryn in the studio, one seated on a white block and one on the floor beside hand-lettered Foil Fam signs",
+        "asset_2": "about-sunglasses.jpg",
+        "position_2": "center 50%",
+        "alt_2": "Hali and Lauryn lying head to head in sunglasses, surrounded by Foil Fam cards"
+      }
     },
     "signup": {
       "type": "ff-signup",

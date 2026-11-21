@@ -1,12 +1,22 @@
 {%- comment -%} Two marketing photos side by side (stacked on phones). {%- endcomment -%}
 <section class="ff">
-  <div class="wrap photo-pair">
+  <div class="wrap photo-pair{% if section.settings.shape == 'portrait' %} portrait{% endif %}">
     {%- for i in (1..2) -%}
       {%- assign key = 'image_' | append: i -%}
       {%- assign img = section.settings[key] -%}
+      {%- assign asset_key = 'asset_' | append: i -%}
+      {%- assign asset = section.settings[asset_key] -%}
+      {%- assign position_key = 'position_' | append: i -%}
+      {%- assign position = section.settings[position_key] | default: 'center 50%' -%}
+      {%- assign alt_key = 'alt_' | append: i -%}
+      {%- assign alt_text = section.settings[alt_key] -%}
       <div class="photo">
         {%- if img != blank -%}
-          {{ img | image_url: width: 1200 | image_tag: widths: '400, 800, 1200', sizes: '(max-width: 560px) 100vw, 50vw', loading: 'lazy' }}
+          {%- assign alt = img.alt | default: alt_text -%}
+          {%- assign style = 'object-position: ' | append: position -%}
+          {{ img | image_url: width: 1200 | image_tag: widths: '400, 800, 1200', sizes: '(max-width: 560px) 100vw, 50vw', loading: 'lazy', alt: alt, style: style }}
+        {%- elsif asset != blank -%}
+          <img src="{{ asset | asset_url }}" width="1333" height="2000" loading="lazy" style="object-position: {{ position | escape }}" alt="{{ alt_text | escape }}">
         {%- else -%}
           <span>Marketing photo</span>
         {%- endif -%}
@@ -19,8 +29,20 @@
 {
   "name": "Foil Fam photo pair",
   "settings": [
+    { "type": "select", "id": "shape", "label": "Photo shape", "default": "landscape", "options": [
+      { "value": "landscape", "label": "Wide (4:3)" },
+      { "value": "portrait", "label": "Tall (4:5)" }
+    ] },
+    { "type": "header", "content": "Photo 1" },
     { "type": "image_picker", "id": "image_1", "label": "Photo 1" },
-    { "type": "image_picker", "id": "image_2", "label": "Photo 2" }
+    { "type": "text", "id": "alt_1", "label": "Photo 1 description" },
+    { "type": "text", "id": "position_1", "label": "Photo 1 framing", "default": "center 50%", "info": "Which part stays in frame: e.g. \"center 20%\" (top) or \"center 85%\" (bottom)." },
+    { "type": "text", "id": "asset_1", "label": "Photo 1 bundled file", "info": "Theme asset used when no photo is picked." },
+    { "type": "header", "content": "Photo 2" },
+    { "type": "image_picker", "id": "image_2", "label": "Photo 2" },
+    { "type": "text", "id": "alt_2", "label": "Photo 2 description" },
+    { "type": "text", "id": "position_2", "label": "Photo 2 framing", "default": "center 50%", "info": "Which part stays in frame: e.g. \"center 20%\" (top) or \"center 85%\" (bottom)." },
+    { "type": "text", "id": "asset_2", "label": "Photo 2 bundled file", "info": "Theme asset used when no photo is picked." }
   ],
   "presets": [{ "name": "Foil Fam photo pair" }]
 }
